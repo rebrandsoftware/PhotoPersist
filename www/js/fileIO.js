@@ -23,7 +23,7 @@ var FileIO = {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
             function(fileSystem) {
                 console.log("[FILEIO]: Got filesystem");
-                var fileURI = fileSystem.root.fullPath + partialPath;
+                var fileURI = fileSystem.root.toURL() + partialPath;
                 console.log("[FILEIO]: Full Path: " + fileURI);
                 callback(fileURI);
             }, FileIO.errorHandler);
