@@ -40,7 +40,7 @@ var FileIO = {
                 reader.onloadend = function(evt) {
                     b64 = evt.target.result;
                     console.log("[FILEIO]: got base64 len: " + b64.length);
-                    console.log(b64);
+                    console.log("[FILEIO]: line breaks: " + b64.indexOf("\n"));
                     callback(b64);
                 };
                 reader.readAsDataURL(file);
