@@ -45,6 +45,8 @@ var app = {
             FileIO.getB64FromFileURI(fullPath, function(b64) {
                 console.log("called back b64; " + b64.length);
                 var $el = ('#imgLoadPhotoB64');
+                console.log("Element: ");
+                console.log($el);
                 $el.attr('src', b64).load();
             });
         });
