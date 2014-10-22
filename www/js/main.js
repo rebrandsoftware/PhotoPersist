@@ -16,8 +16,11 @@ var app = {
         FileIO.makeFilePersistent(tempURI, "MyPhoto.jpg", function(persistentURI) {
             console.log("[photoSuccess] Received Persistent URI: " + persistentURI);
             localStorage.persistentURI = persistentURI;
-            var $el = $('#imgTakePhoto');
-            $el.attr('src', persistentURI).load();
+            FileIO.getFileURI(persistentURI, function(fullPath) {
+                console.log("Got full path: " + fullPath);
+                var $el = $('#imgTakePhoto');
+                $el.attr('src', fullPath).load(); 
+            });
         });
     },
 
@@ -25,8 +28,12 @@ var app = {
         console.log("[loadPhoto]");
         var persistentURI = localStorage.persistentURI;
         console.log("[loadPhoto] persistentURI: " + persistentURI);
-        var $el = $('#imgTakePhoto');
-        $el.attr('src', persistentURI).load();
+        FileIO.getFileURI(persistentURI, function(fullPath) {
+            console.log("Got full path: " + fullPath);
+            var $el = $('#imgTakePhoto');
+            $el.attr('src', persistentURI).load();
+        });
+        
     },
 
     errorHandler: function(err) {
