@@ -19,12 +19,7 @@ var app = {
             FileIO.getFileURI(persistentURI, function(fullPath) {
                 console.log("Got full path: " + fullPath);
                 var $el = $('#imgTakePhoto');
-                //$el.attr('src', fullPath).load(); 
-                FileIO.getB64FromFileURI(fullPath, function(b64) {
-                    console.log("called back b64; " + b64.length);
-                    var $el2 = ('#imgTakePhotoB64');
-                    $el.attr('src', b64).load();
-                });
+                $el.attr('src', fullPath).load(); 
             });
         });
     },
@@ -36,14 +31,23 @@ var app = {
         FileIO.getFileURI(persistentURI, function(fullPath) {
             console.log("[loadPhoto] Got full path: " + fullPath);
             var $el = $('#imgLoadPhoto');
-            //$el.attr('src', fullPath).load();
+            $el.attr('src', fullPath).load();
+        });
+        
+    },
+    
+    loadPhotoB64: function() {
+        console.log("[loadPhotoB64]");
+        var persistentURI = localStorage.persistentURI;
+        console.log("[loadPhoto] persistentURI: " + persistentURI);
+        FileIO.getFileURI(persistentURI, function(fullPath) {
+            console.log("[loadPhoto] Got full path: " + fullPath);
             FileIO.getB64FromFileURI(fullPath, function(b64) {
                 console.log("called back b64; " + b64.length);
-                var $el2 = ('#imgLoadPhotoB64');
+                var $el = ('#imgLoadPhotoB64');
                 $el.attr('src', b64).load();
             });
         });
-        
     },
 
     errorHandler: function(err) {
@@ -60,6 +64,11 @@ var app = {
         $('#btnLoadPhoto').on('click', function() {
             console.log("[btnLoadPhoto]");
             app.loadPhoto();
+        });
+        
+        $('#btnLoadPhotoB64').on('click', function() {
+            console.log("[btnLoadPhotoB64]");
+            app.loadPhotoB64();
         });
     }
 };
