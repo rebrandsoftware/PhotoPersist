@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        PhotoPersist
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <!-- start jquery mobile -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    </script>
+
+    <!-- start phonegap  -->
+    <script src="phonegap.js">
+    </script>
+
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            console.log("Device Ready");
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Home -->
+    <div data-role="page" id="home">
+        <div data-theme="a" data-role="header">
+            <h3>
+          PhotoPersist   
+        </h3>
+        </div>
+        <div class="ui-content">
+            <a data-role="button" href="#" id="btnTakePhoto" data-icon="camera" data-iconpos="left">
+            Take a photo
+        </a>
+
+            <img src="" id="imgTakePhoto" height="120" width="160">
+
+            <a data-role="button" href="#" id="bntLoadPhoto" data-icon="action" data-iconpos="left">
+            Load saved photo
+        </a>
+
+            <img src="" id="imgLoadPhoto" height="120" width="160">
+        </div>
+    </div>
+
+    <script src="js/fileIO.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
