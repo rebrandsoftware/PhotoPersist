@@ -28,10 +28,22 @@ var FileIO = {
                 callback(fileURI);
             }, FileIO.errorHandler);
     },
-
-    resolveFileURI: function(fileURI, callback) {
+    
+    getB64FromFileURI: function(fileURI, callback) {
+        console.log('[FILEIO]: getB64FromFileURI: ' + fileURI);
         window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
-            callback(fileEntry);
+            console.log("[FILEIO]: Resolved FileURI to FileEntry");
+            console.log(fileEntry);
+            fileEntry.file(function(file) {
+                var reader = new FileReader();
+                var b64='';
+                reader.onloadend = function(evt) {
+                    b64 = evt.target.result;
+                    console.log("[FILEIO]: got base64 len: " + b64.length);
+                    callback(b64);
+                };
+                reader.readAsDataURL(file);
+            }, FileIO.errorHandler);
         }, FileIO.errorHandler);
     },
 

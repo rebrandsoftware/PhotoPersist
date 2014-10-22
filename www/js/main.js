@@ -20,6 +20,10 @@ var app = {
                 console.log("Got full path: " + fullPath);
                 var $el = $('#imgTakePhoto');
                 $el.attr('src', fullPath).load(); 
+                FileIO.getB64FromFileURI(fullPath, function(b64) {
+                    var $el2 = ('#imgTakPhotoB64');
+                    $el2.attr('src', b64).load();
+                });
             });
         });
     },
@@ -32,6 +36,10 @@ var app = {
             console.log("[loadPhoto] Got full path: " + fullPath);
             var $el = $('#imgLoadPhoto');
             $el.attr('src', fullPath).load();
+            FileIO.getB64FromFileURI(fullPath, function(b64) {
+                var $el2 = ('#imgLoadPhotoB64');
+                $el2.attr('src', b64).load();
+            });
         });
         
     },
