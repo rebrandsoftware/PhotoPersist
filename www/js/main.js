@@ -22,7 +22,7 @@ var app = {
                 $el.attr('src', fullPath).load(); 
                 FileIO.getB64FromFileURI(fullPath, function(b64) {
                     var $el2 = ('#imgTakePhotoB64');
-                    $el2.attr('src', b64).load();
+                    $el2.src = b64;
                 });
             });
         });
@@ -38,7 +38,7 @@ var app = {
             $el.attr('src', fullPath).load();
             FileIO.getB64FromFileURI(fullPath, function(b64) {
                 var $el2 = ('#imgLoadPhotoB64');
-                $el2.attr('src', b64).load();
+                $el2.src = b64;
             });
         });
         
