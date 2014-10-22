@@ -29,9 +29,9 @@ var app = {
         var persistentURI = localStorage.persistentURI;
         console.log("[loadPhoto] persistentURI: " + persistentURI);
         FileIO.getFileURI(persistentURI, function(fullPath) {
-            console.log("Got full path: " + fullPath);
-            var $el = $('#imgTakePhoto');
-            $el.attr('src', persistentURI).load();
+            console.log("[loadPhoto] Got full path: " + fullPath);
+            var $el = $('#imgLoadPhoto');
+            $el.attr('src', fullPath).load();
         });
         
     },
