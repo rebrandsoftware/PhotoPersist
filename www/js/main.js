@@ -3,11 +3,11 @@ var app = {
         console.log("[takePhoto]");
         navigator.camera.getPicture(app.photoSuccess, app.errorHandler, {
             quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             targetWidth: 800,
             targetHeight: 600,
             sourceType: 1,
-            saveToPhotoAlbum: true
+            saveToPhotoAlbum: false
         });
     },
 
