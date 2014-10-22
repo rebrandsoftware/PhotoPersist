@@ -19,10 +19,11 @@ var app = {
             FileIO.getFileURI(persistentURI, function(fullPath) {
                 console.log("Got full path: " + fullPath);
                 var $el = $('#imgTakePhoto');
-                $el.attr('src', fullPath).load(); 
+                //$el.attr('src', fullPath).load(); 
                 FileIO.getB64FromFileURI(fullPath, function(b64) {
+                    console.log("called back b64; " + b64.length);
                     var $el2 = ('#imgTakePhotoB64');
-                    $el2.src = b64;
+                    $el.attr('src', b64).load();
                 });
             });
         });
@@ -35,10 +36,11 @@ var app = {
         FileIO.getFileURI(persistentURI, function(fullPath) {
             console.log("[loadPhoto] Got full path: " + fullPath);
             var $el = $('#imgLoadPhoto');
-            $el.attr('src', fullPath).load();
+            //$el.attr('src', fullPath).load();
             FileIO.getB64FromFileURI(fullPath, function(b64) {
+                console.log("called back b64; " + b64.length);
                 var $el2 = ('#imgLoadPhotoB64');
-                $el2.src = b64;
+                $el.attr('src', b64).load();
             });
         });
         
