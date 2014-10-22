@@ -2,17 +2,18 @@ var FileIO = {
 
     makeFilePersistent: function(tempURI, newName, callback) {
         //resolve the file URI
-        console.log("[FILEIO]: makeFilePersistent");
-        console.log(tempURI);
+        console.log("[FILEIO]: makeFilePersistent: " + tempURI);
         window.resolveLocalFileSystemURL(tempURI, function(fileEntry) {
-            console.log("[FILEIO]: Resolved Temp File");
+            console.log("[FILEIO]: Resolved Temp File to FileEntry");
+            console.log(fileEntry);
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
                 function(fileSystem) {
                     console.log("[FILEIO]: Got filesystem");
+                    console.log(fileSystem);
                     fileEntry.moveTo(fileSystem.root, newName, function(newFileEntry) {
                         console.log("[FILEIO]: Moved File");
-                        console.log("[FILEIO]: New URI: " + newFileEntry.fullpath);
-                        callback(newFileEntry.fullpath);
+                        console.log("[FILEIO]: New URI: " + newFileEntry.fullPath);
+                        callback(newFileEntry.fullPath);
                     }, FileIO.errorHandler);
                 }, FileIO.errorHandler);
         }, FileIO.errorHandler);
