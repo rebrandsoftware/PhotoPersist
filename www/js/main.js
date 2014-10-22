@@ -21,7 +21,7 @@ var app = {
                 var $el = $('#imgTakePhoto');
                 $el.attr('src', fullPath).load(); 
                 FileIO.getB64FromFileURI(fullPath, function(b64) {
-                    var $el2 = ('#imgTakPhotoB64');
+                    var $el2 = ('#imgTakePhotoB64');
                     $el2.attr('src', b64).load();
                 });
             });
