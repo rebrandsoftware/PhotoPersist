@@ -61,7 +61,7 @@ var app = {
         console.log("[loadBlob] blobURI: " + blobURI);
         FileIO.getFileURI(blobURI, function(fullPath) {
             console.log("[loadBlob] Got full path: " + fullPath);
-            $('#imgLoadBlob').attr('src', fullPath).load().nailthumb({width:160,height:120});;
+            $('#imgLoadBlob').attr('src', fullPath).load().nailthumb({width:160,height:120});
             $('#aLoadBlob').attr('href', fullPath);
         });
     },
