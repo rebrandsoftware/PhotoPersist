@@ -18,6 +18,25 @@ var FileIO = {
                 }, FileIO.errorHandler);
         }, FileIO.errorHandler);
     },
+    
+    writeBinaryFile: function(binaryData, fileName, callback) {
+        console.log("[FILEIO]: writeBinaryFile");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
+            function(fileSystem) {
+                fileSystem.root.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+                    fileEntry.createWriter(function(writer) {
+                        console.log("[FILEIO]: created writer");
+                        writer.onwriteend = function(evt) {
+                            console.log("[FILEIO]: write end");
+                            console.log(evt);
+                            callback(fileEntry.fullPath);
+                        };
+        
+                        writer.write(binaryData); 
+                    });
+                }, FileIO.errorHandler);
+            }, FileIO.errorHandler);
+    },
 
     getFileURI: function(partialPath, callback) {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
@@ -46,6 +65,20 @@ var FileIO = {
                 reader.readAsDataURL(file);
             }, FileIO.errorHandler);
         }, FileIO.errorHandler);
+    },
+    
+    getBlobFromBase64: function (bs64data) { 
+        console.log('[FILEIO]: getBinaryFromBase64: ' + fileURI);
+        var binary = atob(bs64data.split(',')[1]); 
+        // atob() decode base64 data.. 
+        var array = []; 
+        for (var i = 0; i < binary.length; i++) { 
+            array.push(binary.charCodeAt(i));   
+            // convert to binary.. 
+        } 
+        var file = new Blob([new Uint8Array(array)], {type: 'image/jpeg'});    // create blob file.. 
+        console.log('[FILEIO]: Got Blob');
+        return file;
     },
 
     // simple error handler

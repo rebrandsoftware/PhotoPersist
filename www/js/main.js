@@ -36,7 +36,7 @@ var app = {
         
     },
     
-    loadPhotoB64: function() {
+    saveBlob: function() {
         console.log("[loadPhotoB64]");
         var persistentURI = localStorage.persistentURI;
         console.log("[loadPhoto] persistentURI: " + persistentURI);
@@ -44,11 +44,25 @@ var app = {
             console.log("[loadPhoto] Got full path: " + fullPath);
             FileIO.getB64FromFileURI(fullPath, function(b64) {
                 console.log("called back b64; " + b64.length);
-                var $el = ('#imgLoadPhoto');
-                console.log("Element: ");
-                console.log($el);
-                
+                var blob = FileIO.getBlobFromBase64(b64);
+                console.log("Got Blob");
+                console.log(blob);
+                FileIO.writeBinaryFile(blob, "MyBinaryPhoto.jpg", function(fileURI) {
+                    console.log("Got Blob URI: " + fileURI);
+                   localStorage.blobURI = fileURI; 
+                });
             });
+        });
+    },
+    
+    loadBlob: function() {
+        console.log("[loadBlob]");
+        var blobURI = localStorage.blobURI;
+        console.log("[loadBlob] blobURI: " + blobURI);
+        FileIO.getFileURI(blobURI, function(fullPath) {
+            console.log("[loadBlob] Got full path: " + fullPath);
+            $('#imgLoadBlob').attr('src', fullPath).load();
+            $('#aLoadBlob').attr('href', fullPath);
         });
     },
 
@@ -70,9 +84,14 @@ var app = {
             app.loadPhoto();
         });
         
-        $('#btnLoadPhotoB64').on('click', function() {
-            console.log("[btnLoadPhotoB64]");
-            app.loadPhotoB64();
+        $('#btnSaveBlob').on('click', function() {
+            console.log("[btnSaveBlob]");
+            app.saveBlob();
+        });
+        
+        $('#btnLoadBlob').on('click', function() {
+            console.log("[btnLoadBlob]");
+            app.loadBlob();
         });
     }
 };
