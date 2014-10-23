@@ -58,6 +58,8 @@ var app = {
     },
 
     initialize: function() {
+        $('.swipebox').swipebox();
+        
         $('#btnTakePhoto').on('click', function() {
             console.log("[btnTakePhoto]");
             app.takePhoto();

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-    </script>
+    <link rel="stylesheet" href="lib/swipebox.css" />
 
     <!-- start phonegap  -->
     <script src="phonegap.js">
@@ -41,21 +41,18 @@
             Take a photo
         </a>
 
-            <img src="" id="imgTakePhoto" height="120" width="160">
-
+            <a id="aTakePhoto" href="" class="swipebox" title="Take Photo">
+                <img src="" id="imgTakePhoto" height="120" width="160">
+            </a>
             <a data-role="button" href="#" id="btnLoadPhoto" data-icon="action" data-iconpos="left">
             Load saved photo
         </a>
 
-            <img src="" id="imgLoadPhoto" height="120" width="160">
-            <a data-role="button" href="#" id="btnLoadPhotoB64" data-icon="action" data-iconpos="left">
-            Load saved photo base64
-        </a>
-
-            <img src="" id="imgLoadPhotoB64" height="120" width="160">
+            <a id="aLoadPhoto" href="" class="swipebox" title="Saved Photo"><img src="" id="imgLoadPhoto" height="120" width="160"></a>
+            
         </div>
     </div>
-
+    <script src="lib/jquery.swipebox.min.js"></script>
     <script src="js/fileIO.js"></script>
     <script src="js/main.js"></script>
 </body>
