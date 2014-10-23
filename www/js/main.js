@@ -79,6 +79,10 @@ var app = {
                 $(this).hide();
         });
         
+        $("img").load(function(){
+                $(this).show();
+        });
+        
         $('#btnTakePhoto').on('click', function() {
             console.log("[btnTakePhoto]");
             app.takePhoto();
