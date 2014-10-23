@@ -74,6 +74,11 @@ var app = {
     initialize: function() {
         $('.swipebox').swipebox();
         
+        // Or, hide them
+        $("img").error(function(){
+                $(this).hide();
+        });
+        
         $('#btnTakePhoto').on('click', function() {
             console.log("[btnTakePhoto]");
             app.takePhoto();
