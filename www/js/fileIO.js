@@ -23,7 +23,7 @@ var FileIO = {
         console.log("[FILEIO]: writeBinaryFile");
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
             function(fileSystem) {
-                fileSystem.root.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+                fileSystem.root.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
                     fileEntry.createWriter(function(writer) {
                         console.log("[FILEIO]: created writer");
                         writer.onwriteend = function(evt) {
