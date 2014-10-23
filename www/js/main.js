@@ -18,8 +18,8 @@ var app = {
             localStorage.persistentURI = persistentURI;
             FileIO.getFileURI(persistentURI, function(fullPath) {
                 console.log("Got full path: " + fullPath);
-                var $el = $('#imgTakePhoto');
-                $el.attr('src', fullPath).load(); 
+                $('#imgTakePhoto').attr('src', fullPath).load(); 
+                $('#aTakePhoto').attr('href', fullPath).load(); 
             });
         });
     },
@@ -30,8 +30,8 @@ var app = {
         console.log("[loadPhoto] persistentURI: " + persistentURI);
         FileIO.getFileURI(persistentURI, function(fullPath) {
             console.log("[loadPhoto] Got full path: " + fullPath);
-            var $el = $('#imgLoadPhoto');
-            $el.attr('src', fullPath).load();
+            $('#imgLoadPhoto').attr('src', fullPath).load();
+            $('#aLoadPhoto').attr('href', fullPath);
         });
         
     },
@@ -47,7 +47,7 @@ var app = {
                 var $el = ('#imgLoadPhoto');
                 console.log("Element: ");
                 console.log($el);
-                $el.attr('src', b64).load();
+                
             });
         });
     },
