@@ -16,6 +16,11 @@
     </author>
 
     <access origin="*" />
+    
+    <feature name="debug-server" required="true">
+       <param name="domain" value="http://192.168.1.103:9090"/>
+       <param name="key" value="I_DRINK_YOUR_MILKSHAKE"/>
+    </feature>
 
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
