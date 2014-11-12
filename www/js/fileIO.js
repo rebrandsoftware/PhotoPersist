@@ -69,7 +69,7 @@ var FileIO = {
     
     getBlobFromBase64: function (b64Data, contentType, sliceSize) { 
         console.log('[FILEIO]: getBlobFromBase64');
-        var binary = atob(bs64data.split(',')[1]); 
+        var binary = atob(b64Data.split(',')[1]); 
         // atob() decode base64 data.. 
         console.log("[FILEIO]: got binary");
         var array = []; 
