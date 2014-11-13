@@ -61,54 +61,32 @@
         
         <a id="aLoadBlob" href="" class="swipebox" title="Saved Blob"><img src="" id="imgLoadBlob" height="120" width="160"></a>
             
-        </div>
         
-        <a data-role="button" href="#popupMenu" id="btnPopupTest" data-icon="action" data-iconpos="left">
-            Test popup
+        
+        <a data-role="button" href="#popupAddGame" data-rel="popup" data-icon="plus"  data-transition="slidedown" data-iconpos="left">
+          Add Game
         </a>
         
-        <div data-role="popup" id="popupMenu">
-        <ul data-role="listview" class="social-list" id="social-list" data-inset="true" style="min-width:210px;" data-theme="a">
-          <li data-role="list-divider" data-theme="b">
-            Social Options
-          </li>
-          <li id="socialRate" data-icon="heart">
-            <a href="#">
-              Send Love
-            </a>
-          </li>
-          <li id="socialFeedback" data-icon="comment">
-            <a href="#">
-              Send Feedback
-            </a>
-          </li>
-          <li id="socialTweet" data-icon="forward">
-            <a href="#">
-              Share
-            </a>
-          </li>
-          <li id="socialFollow" data-icon="user">
-            <a href="#">
-              Follow
-            </a>
-          </li>
-          <li id="socialFriend" data-icon="user">
-            <a href="#">
-              Friend
-            </a>
-          </li>
-          <li id="socialLike" data-icon="check">
-            <a href="#">
-              Like on Facebook
-            </a>
-          </li>
-          <li id="socialSupport" data-icon="info">
-            <a href="#">
-              Support
-            </a>
-          </li>
-        </ul>
-      </div>
+        <div data-role="popup" id="popupAddGame">
+            <ul data-role="listview" class="addgame-list" id="addgame-list" data-inset="true" style="min-width:210px;" data-theme="a">
+              <li data-role="list-divider" data-theme="b">
+                Game Type:
+              </li>
+              <li id="addGameOnline" data-icon="check">
+                <a href="#gamesDatabase">
+                  ScoreGeek Game Database
+                </a>
+              </li>
+              <li id="addGameCustom" data-icon="edit">
+                <a href="#addgame">
+                  Custom Game
+                </a>
+              </li>
+            </ul>
+          </div>
+        
+        
+        </div>
     </div>
     <script src="lib/nailthumb/jquery.nailthumb.1.1.min.js"></script>
     <script src="lib/swipebox/jquery.swipebox.min.js"></script>
